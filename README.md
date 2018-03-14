@@ -1,5 +1,7 @@
 # isthejmzrunning
 
+What's up with the J/M/Z trains? This app will tell you right quick.
+
 ## Start the app
 
 ``` sh
