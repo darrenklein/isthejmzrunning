@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+isthejmzrunning/__init__.py
+isthejmzrunning/isthejmzrunning.py
+isthejmzrunning.egg-info/PKG-INFO
+isthejmzrunning.egg-info/SOURCES.txt
+isthejmzrunning.egg-info/dependency_links.txt
+isthejmzrunning.egg-info/requires.txt
+isthejmzrunning.egg-info/top_level.txt
