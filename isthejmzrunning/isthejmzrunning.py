@@ -12,3 +12,7 @@ app.config.update(dict(
     # PASSWORD='default'
 ))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
