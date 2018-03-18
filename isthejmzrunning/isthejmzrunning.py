@@ -1,19 +1,21 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-
 import isthejmzrunning.lib.mta_request as MTARequest
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('ISTHEJMZRUNNING_SETTINGS', silent=True)
 
+# feed_ids taken from http://datamine.mta.info/list-of-feeds
 bdfm_feed_id = '21'
 jz_feed_id = '36'
 
 @app.route('/')
 def index():
-    new_request = MTARequest.NewRequest(bdfm_feed_id)
-    print(new_request.get())
+    bdfm_request = MTARequest.NewRequest(bdfm_feed_id).get()
+    jz_request = MTARequest.NewRequest(jz_feed_id).get()
+    print(bdfm_request)
+    print(jz_request)
     return render_template('index.html')
 
 
