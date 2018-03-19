@@ -14,15 +14,15 @@ jz_feed_id = '36'
 # "'status': False" will imply no delay - .assess_alerts() will be used to change that...
 line_list = [
     {
-        'routeId': 'j',
+        'routeId': 'J',
         'status': False
     },
     {
-        'routeId': 'm',
+        'routeId': 'M',
         'status': False
     },
     {
-        'routeId': 'z',
+        'routeId': 'Z',
         'status': False
     }
 ]
