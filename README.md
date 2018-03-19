@@ -11,3 +11,6 @@ flask run
 ```
 
 Locally, this app runs on `localhost:5000`
+
+## To-do
+- add logging... for now, just using print()
