@@ -11,6 +11,7 @@ def check_results_for_alerts(*entity_lists):
     for entity in entity_list:
         # Convert the JSON string to a dict
         entity = json.loads(entity)
+        print(entity)
         # If there's an alert entity, this will (likely) contain our delay notifications
         if 'alert' in entity:
             print('alert found')
@@ -26,9 +27,8 @@ def check_results_for_alerts(*entity_lists):
             else:
                 print('alert found, no lines specified')
                 return []
-        else:
-            print('no alerts found')
-            return []
+    print('no alerts found')
+    return []
 
 # Loop through the alert data and compare it with the line_list
 def assess_alerts(alert_data, line_list):
