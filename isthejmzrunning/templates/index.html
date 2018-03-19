@@ -2,5 +2,16 @@
 <title>Is the JMZ Running?</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
 <div>
-{{lineStatuses}}
+	<ul>
+		{% for line in lineStatuses %}
+		<li>
+			{{ line.routeId }}
+			{% if line.status %}
+				Delayed!
+			{% else %}
+				Not delayed...
+			{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
 </div>

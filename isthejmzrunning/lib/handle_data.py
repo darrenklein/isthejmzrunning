@@ -35,4 +35,4 @@ def assess_alerts(alert_data, line_list):
     for line in line_list:
         if line.get('routeId') in alert_data:
             line['status'] = True
-    return json.dumps(line_list)
+    return line_list
