@@ -14,9 +14,6 @@ class NewRequest:
         feed = gtfs_realtime_pb2.FeedMessage()
         response = urllib.request.urlopen(self.request_url)
         feed.ParseFromString(response.read())
-
-        print(feed)
-
         # Formatting the entity as a json string works, but is probably inefficient.
         # Can I do the whole batch?
         # Source - https://gist.github.com/StevenMaude/a7e3ee58c91794b4759075ba5d04708d
