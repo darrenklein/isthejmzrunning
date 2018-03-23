@@ -3,6 +3,8 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 import isthejmzrunning.lib.mta_request as MTARequest
 import isthejmzrunning.lib.handle_data as HandleData
 
+import json
+
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('ISTHEJMZRUNNING_SETTINGS', silent=True)
@@ -16,10 +18,13 @@ line_list = ['J', 'M', 'Z']
 
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/fetch')
+def fetch():
     bdfm_request = MTARequest.NewRequest(bdfm_feed_id).get()
     jz_request = MTARequest.NewRequest(jz_feed_id).get()
-
     line_info = HandleData.process_results(bdfm_request, jz_request)
     line_statuses = HandleData.assess_results(line_info, line_list)
 
-    return render_template('index.html', lineStatuses=line_statuses)
+    return json.dumps(line_statuses)

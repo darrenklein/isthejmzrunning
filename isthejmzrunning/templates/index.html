@@ -1,19 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <title>Is the JMZ Running?</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheets/main.css') }}">
-<div>
-	<ul>
-		{% for line in lineStatuses %}
-		<li>
-			{{ line.route_id }}
-			{% if line.not_running %}
-				Not running... :(
-			{% elif line.delay_status %}
-				Delayed!
-			{% else %}
-				Runnin' fine.
-			{% endif %}
-		</li>
-		{% endfor %}
-	</ul>
+<div class="app_container">
+	<div class="data_container">
+		Jiggling the MTA servers...
+	</div>
+	<script type="text/javascript" src="{{ url_for('static', filename='vendor/scripts/jquery-3.3.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='scripts/app.js') }}"></script>
 </div>
