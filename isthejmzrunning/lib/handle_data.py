@@ -1,6 +1,5 @@
 import itertools
 import json
-import copy
 
 # The aim of this function is to examine the feed data and output a tuple of two lists -
 # The first list will contain a list of all of the train lines currently running (tripUpdate),
@@ -31,13 +30,11 @@ def process_results(*entity_lists):
             # a list of the delayed lines.
             # If the entity has informedEntity info, that'll have the line info.
             # Pull the route numbers out of the informedEntity and append the list to alerts.
+            # Worth noting that in some instances, an alert occurs with no informedEntity.
             if 'informedEntity' in entity.get('alert'):
                 informed_entities = entity.get('alert').get('informedEntity')
                 alert_data = [informed_ent.get('trip').get('routeId') for informed_ent in informed_entities]
                 alerted_routes.append(alert_data)
-            # Not sure how to interpret lineless delay info... for now, have to leave it at this.
-            else:
-                print('alert found, no routeId specified')
 
     # Flatten the lists and put them into a tuple for easy processing by assess_results()
     return (list(itertools.chain.from_iterable(current_trips)), list(itertools.chain.from_iterable(alerted_routes)))
@@ -46,12 +43,17 @@ def process_results(*entity_lists):
 # (line_info[0]) or present in the alerted lines (line_info[1]), implying that a train is either not
 # running or delayed, respectively.
 def assess_results(line_info, line_list):
-    # Create a deep copy so as to not mutate the original list
-    line_list_copy = copy.deepcopy(line_list)
+    results = []
 
-    for line in line_list_copy:
-        if line.get('route_id') not in line_info[0]:
-            line['not_running'] = True
-        elif line.get('route_id') in line_info[1]:
-            line['delay_status'] = True
-    return line_list_copy
+    for line in line_list:
+        line_dic = {
+            'route_id': line
+        }
+        if line not in line_info[0]:
+            line_dic['not_running'] = True
+        elif line in line_info[1]:
+            line_dic['delay_status'] = True
+
+        results.append(line_dic)
+
+    return results
