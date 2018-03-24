@@ -2,7 +2,6 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 import isthejmzrunning.lib.mta_request as MTARequest
 import isthejmzrunning.lib.handle_data as HandleData
-
 import json
 
 app = Flask(__name__)

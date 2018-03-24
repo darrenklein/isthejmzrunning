@@ -1,5 +1,6 @@
 MANIFEST.in
 README.md
+setup.py
 isthejmzrunning/__init__.py
 isthejmzrunning/isthejmzrunning.py
 isthejmzrunning.egg-info/PKG-INFO
