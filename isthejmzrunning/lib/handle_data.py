@@ -42,18 +42,18 @@ def process_results(*entity_lists):
 # Loop through the line_list, checking to see if the line is either not present in the current trips
 # (line_info[0]) or present in the alerted lines (line_info[1]), implying that a train is either not
 # running or delayed, respectively.
-def assess_results(line_info, line_list):
+def assess_results(route_info, route_list):
     results = []
 
-    for line in line_list:
-        line_dic = {
-            'route_id': line
+    for route in route_list:
+        route_dic = {
+            'route_id': route
         }
-        if line not in line_info[0]:
-            line_dic['not_running'] = True
-        elif line in line_info[1]:
-            line_dic['delay_status'] = True
+        if route not in route_info[0]:
+            route_dic['not_running'] = True
+        elif route in route_info[1]:
+            route_dic['delay_status'] = True
 
-        results.append(line_dic)
+        results.append(route_dic)
 
     return results

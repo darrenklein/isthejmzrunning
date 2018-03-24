@@ -2,25 +2,29 @@ $(document).ready(function() {
   const notRunningText = 'Not running... bummer!';
   const delayText = 'Delayed :(';
   const goodText = 'All good!';
-  const listContainer = $('<ul>', {class: 'list_container'});
+  const routeContainer = $('<div>');
+  const brownRouteClass = 'brown_route';
+  const orangeRouteClass = 'orange_route';
 
-  $.get('fetch', function(lineStatuses) {
-    $('.data_container').html(listContainer);
+  $.get('fetch', function(routeStatuses) {
+    $('.data_container').html(routeContainer);
 
-    lineStatuses = JSON.parse(lineStatuses);
+    routeStatuses = JSON.parse(routeStatuses);
 
-    for (let i = 0; i < lineStatuses.length; i++) {
+    for (let i = 0; i < routeStatuses.length; i++) {
       let statusText;
 
-      if (lineStatuses[i].not_running) {
+      if (routeStatuses[i].not_running) {
         statusText = notRunningText;
-      } else if (lineStatuses[i].delay_status) {
+      } else if (routeStatuses[i].delay_status) {
         statusText = delayTextl
       } else {
         statusText = goodText;
       }
 
-      $('<li>').html(lineStatuses[i].route_id + ': ' + statusText).appendTo(listContainer)
+      $('<div>', {class: 'routeInfo col-xs-12 ' + (routeStatuses[i].route_id === 'M' ? orangeRouteClass : brownRouteClass)})
+        .html('<span class=\'route_id_span\'>' + routeStatuses[i].route_id + '</span>' + ' ' + statusText)
+        .appendTo(routeContainer);
     }
   });
 })

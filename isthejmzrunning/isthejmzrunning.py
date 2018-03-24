@@ -13,7 +13,7 @@ bdfm_feed_id = '21'
 jz_feed_id = '36'
 
 # The list of train lines that we want to return
-line_list = ['J', 'M', 'Z']
+route_list = ['J', 'M', 'Z']
 
 @app.route('/')
 def index():
@@ -23,7 +23,7 @@ def index():
 def fetch():
     bdfm_request = MTARequest.NewRequest(bdfm_feed_id).get()
     jz_request = MTARequest.NewRequest(jz_feed_id).get()
-    line_info = HandleData.process_results(bdfm_request, jz_request)
-    line_statuses = HandleData.assess_results(line_info, line_list)
+    route_info = HandleData.process_results(bdfm_request, jz_request)
+    route_statuses = HandleData.assess_results(route_info, route_list)
 
-    return json.dumps(line_statuses)
+    return json.dumps(route_statuses)

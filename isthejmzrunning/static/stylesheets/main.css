@@ -2,4 +2,28 @@ html, body {
   font-family: "Sailec", sans-serif;
   height: 100%;
   box-sizing: border-box;
+  background-color: #1C1C1C;
+  color: #FFFFFF;
+}
+
+.data_container {
+	height: 100%;
+}
+
+.routeInfo {
+	margin: 2em 0;
+	padding: 0.5em 1.75em;
+	box-shadow: 15px 15px 20px #000000;
+}
+
+.brown_route {
+	background-color: #9F632A;
+}
+
+.orange_route {
+	background-color: #FF4B00;
+}
+
+.route_id_span {
+	font-size: 3.5em;
 }
