@@ -6,6 +6,9 @@ def initialize_fetch(feed_ids):
     entity_lists = []
 
     for feed_id in feed_ids:
-        entity_lists.append(NewRequest(feed_id).get())
+        try:
+            entity_lists.append(NewRequest(feed_id).get())
+        except:
+            return False
 
     return entity_lists

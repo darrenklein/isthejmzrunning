@@ -21,6 +21,10 @@ def index():
 @app.route('/api/fetch')
 def fetch():
     entity_lists = IsTheJMZRunning.initialize_fetch(feed_ids)
-    route_info = HandleData.process_results(entity_lists)
-    route_statuses = HandleData.assess_results(route_info, route_list)
-    return json.dumps(route_statuses)
+
+    if entity_lists:
+        route_info = HandleData.process_results(entity_lists)
+        route_statuses = HandleData.assess_results(route_info, route_list)
+        return json.dumps(route_statuses)
+    else:
+        return json.dumps(False)
