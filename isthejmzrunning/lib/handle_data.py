@@ -4,11 +4,7 @@ import json
 # The aim of this function is to examine the feed data and output a tuple of two lists -
 # The first list will contain a list of all of the train lines currently running (tripUpdate),
 # the second list will contain all of the lines for which there is a delay alert.
-#
-# We'll receive an entity_list for every feed_id request.
-# To make this code more reusable, use the * prefixed argument and then use the itertools
-# to join all of the results into one long list to check so any number of requests can be checked.
-def process_results(*entity_lists):
+def process_results(entity_lists):
     # Concat all of the result lists into one list
     entity_list = list(itertools.chain.from_iterable(entity_lists))
     current_trips = []

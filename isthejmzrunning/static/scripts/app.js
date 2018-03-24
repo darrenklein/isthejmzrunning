@@ -10,7 +10,7 @@ $(document).ready(function() {
   const brownRouteClass = 'brown_route';
   const orangeRouteClass = 'orange_route';
 
-  $.get('fetch', function(routeStatuses) {
+  $.get('/api/fetch', function(routeStatuses) {
     $('.data_container').html(routeContainer);
 
     routeStatuses = JSON.parse(routeStatuses);
