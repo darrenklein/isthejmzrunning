@@ -4,16 +4,18 @@ html, body {
   box-sizing: border-box;
   background-color: #1C1C1C;
   color: #FFFFFF;
+  padding: 1em 0;
 }
 
-.data_container {
+.app_container {
 	height: 100%;
 }
 
-.routeInfo {
+.route_info {
 	margin: 2em 0;
 	padding: 0.5em 1.75em;
 	box-shadow: 15px 15px 20px #000000;
+	border-radius: 4px;
 }
 
 .brown_route {
