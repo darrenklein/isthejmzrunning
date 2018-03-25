@@ -11,9 +11,14 @@ html, body {
 	height: 100%;
 }
 
-.route_info {
+.loading_info {
 	margin: 2em 0;
-	padding: 0.5em 1.75em;
+}
+
+.route_info {
+	position: relative;
+	margin: 2em 0;
+	padding: 0.5em 2em;
 	box-shadow: 15px 15px 20px #000000;
 	border-radius: 4px;
 }
@@ -28,4 +33,10 @@ html, body {
 
 .route_id_span {
 	font-size: 3.5em;
+	margin-right: 0.35em;
+}
+
+.status_text_span {
+	position: absolute;
+	bottom: 1.85em;
 }

@@ -3,9 +3,9 @@ function getRandomInt(max) {
 }
 
 $(document).ready(function() {
-  const notRunningText = ['Not running. Bummer!', 'Not in service.', 'Seems like it\'s not running.'];
-  const delayText = ['Delayed :(', 'Looks like delays... but you look great!', 'Delayed - damn!'];
-  const goodText = ['All good!', 'Cool runnings!', 'Looks good... and so do you!'];
+  const notRunningText = ['Not running. Bummer!', 'Not in service.'];
+  const delayText = ['Delayed :(', 'Looks delayed. You look great!', 'Delayed. Damn!'];
+  const goodText = ['All good!', 'Cool runnings!', 'Looks good. You, too!'];
   const routeContainer = $('<div>');
   const errorContainer = $('<div>', {class: 'error_container'}).html('Sorry, there was an error. Please refresh.')
   const brownRouteClass = 'brown_route';
