@@ -1,10 +1,15 @@
 from flask import Flask, render_template
+from os import environ
 import json
 import isthejmzrunning.lib.handle_data as HandleData
 import isthejmzrunning.lib.is_the_jmz_running as IsTheJMZRunning
 
 app = Flask(__name__)
-app.config.from_envvar('DEV_CONFIG')
+
+if environ.get('PRODUCTION') == 'True':
+    app.config['MTA_API_KEY'] = environ.get('MTA_API_KEY')
+else:
+    app.config.from_envvar('DEV_CONFIG')
 
 # feed_ids taken from http://datamine.mta.info/list-of-feeds
 # These are for the BDFM and JMZ, respectively
