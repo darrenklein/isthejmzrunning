@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<head>
-	<title>Is the JMZ Running?</title>
-	<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='vendor/stylesheets/bootstrap.min.css') }}">
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheets/main.css') }}">
-</head>
+{% include "partials/head.jinja" %}
 <body>
 	<div class="app_container col-sm-12 col-sm-8 col-md-6 offset-md-3">
-		<h3>Is the JMZ Running?</h3>
+		{% include "partials/h3_title.jinja" %}
 		<div class="data_container col-sm-12">
 			<div class="text-center">
 				<div class="loading_info">Jiggling the MTA servers...</div>

@@ -40,3 +40,7 @@ html, body {
 	position: absolute;
 	bottom: 1.85em;
 }
+
+.back_button_container {
+	margin-top: 2.5em;
+}

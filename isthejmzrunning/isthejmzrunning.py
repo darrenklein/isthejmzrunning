@@ -1,12 +1,10 @@
-from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
+from flask import Flask, render_template
 import json
 import isthejmzrunning.lib.handle_data as HandleData
 import isthejmzrunning.lib.is_the_jmz_running as IsTheJMZRunning
 
 app = Flask(__name__)
-app.config.from_object(__name__)
-app.config.from_envvar('ISTHEJMZRUNNING_SETTINGS', silent=True)
+app.config.from_envvar('DEV_CONFIG')
 
 # feed_ids taken from http://datamine.mta.info/list-of-feeds
 # These are for the BDFM and JMZ, respectively
@@ -28,3 +26,7 @@ def fetch():
         return json.dumps(route_statuses)
     else:
         return json.dumps(False)
+
+@app.errorhandler(404)
+def not_found(_e):
+    return render_template('not_found.html')
