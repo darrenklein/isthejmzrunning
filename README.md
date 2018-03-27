@@ -9,7 +9,16 @@ export PRODUCTION=False DEV_CONFIG=./dev_config.cfg
 flask run
 ```
 
-Locally, this app runs on `localhost:5000`
+Locally, this app runs on `localhost:5000`.
+
+In production, this app runs on a Gunicorn server, which can also be used locally:
+
+``` sh
+export PRODUCTION=False DEV_CONFIG=./dev_config.cfg
+gunicorn isthejmzrunning.isthejmzrunning:app -b 0.0.0.0:8000
+```
+
+In this example, the app would run on `localhost:8000`.
 
 ## To-do
 - add logging... for now, just using print()
