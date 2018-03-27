@@ -20,3 +20,6 @@ http://datamine.mta.info/list-of-feeds
 http://datamine.mta.info/sites/all/files/pdfs/GTFS-Realtime-NYC-Subway%20version%201%20dated%207%20Sep.pdf
 
 https://developers.google.com/transit/gtfs-realtime/
+
+## Notes
+Following deployment instructions from https://medium.com/the-andela-way/deploying-your-flask-application-to-heroku-c99050bce8f9
