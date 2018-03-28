@@ -32,12 +32,14 @@ def process_results(entity_lists):
                 alert_data = [informed_ent.get('trip').get('routeId') for informed_ent in informed_entities]
                 alerted_routes.append(alert_data)
 
-    # Flatten the lists and put them into a tuple for easy processing by assess_results()
-    return (list(itertools.chain.from_iterable(current_trips)), list(itertools.chain.from_iterable(alerted_routes)))
+    # Flatten the lists and put them into a dictionary for easy processing by assess_results()
+    return {
+        'current_trips': list(itertools.chain.from_iterable(current_trips)),
+        'alerted_routes': list(itertools.chain.from_iterable(alerted_routes))
+    }
 
 # Loop through the line_list, checking to see if the line is either not present in the current trips
-# (line_info[0]) or present in the alerted lines (line_info[1]), implying that a train is either not
-# running or delayed, respectively.
+# or present in the alerted lines, implying that a train is either not running or delayed, respectively.
 def assess_results(route_info, route_list):
     results = []
 
@@ -45,9 +47,9 @@ def assess_results(route_info, route_list):
         route_dic = {
             'route_id': route
         }
-        if route not in route_info[0]:
+        if route not in route_info['current_trips']:
             route_dic['not_running'] = True
-        elif route in route_info[1]:
+        elif route in route_info['alerted_routes']:
             route_dic['delay_status'] = True
 
         results.append(route_dic)
