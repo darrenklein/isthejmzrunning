@@ -39,3 +39,4 @@ This app's JavaScript has been linted according to ESLint Airbnb base rules: htt
 ## To-do
 
 - add logging... for now, just using print()
+- install flask-minify - https://github.com/mrf345/flask_minify/
