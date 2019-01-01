@@ -1,10 +1,10 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.2
 Name: isthejmzrunning
-Version: 0.0.0
-Summary: UNKNOWN
+Version: 0.0.1
+Summary: Fetch the current status of the New York City MTA's J, M, and Z trains.
 Home-page: UNKNOWN
 Author: Darren Klein
-Author-email: darren.a.klein@gmail.com
-Description-Content-Type: UNKNOWN
+License: UNKNOWN
 Description: UNKNOWN
 Platform: UNKNOWN
+Requires-Python: >3.6.4

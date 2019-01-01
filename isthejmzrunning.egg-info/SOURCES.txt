@@ -1,4 +1,3 @@
-MANIFEST.in
 README.md
 setup.py
 isthejmzrunning/__init__.py

@@ -2,12 +2,20 @@
 
 In tribute to the beloved https://isthelrunning.com/, here's an app designed to give you a quick update on the general status of the J, M, and Z trains.
 
+## Installation
+
+To install this app's dependencies, run the command
+
+```bash
+python setup.py install
+```
+
 ## Start the app
 
 To run with flask:
 
 ```bash
-export PRODUCTION=False DEV_CONFIG=./dev_config.cfg
+export PRODUCTION=False DEV_CONFIG=./dev_config.cfg FLASK_APP=isthejmzrunning/__init__.py
 flask run
 ```
 
