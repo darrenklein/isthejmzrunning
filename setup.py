@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='isthejmzrunning',
-    packages=['isthejmzrunning'],
+    packages=['isthejmzrunning, isthejmzrunning.lib'],
     version='0.0.1',
     author='Darren Klein',
     description='Fetch the current status of the New York City MTA\'s J, M, and Z trains.',
