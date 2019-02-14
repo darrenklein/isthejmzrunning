@@ -1,4 +1,5 @@
 # isthejmzrunning
+> Status of the MTA's J, M, and Z trains.
 
 In tribute to the beloved https://isthelrunning.com/, here's an app designed to give you a quick update on the general status of the J, M, and Z trains.
 
@@ -15,8 +16,8 @@ python setup.py install
 To run with flask:
 
 ```bash
-export PRODUCTION=False DEV_CONFIG=./dev_config.cfg FLASK_APP=isthejmzrunning/__init__.py
-flask run
+$ export PRODUCTION=False DEV_CONFIG=./dev_config.cfg FLASK_APP=isthejmzrunning/__init__.py
+$ flask run
 ```
 
 which will run the app on `localhost:5000`.
@@ -24,8 +25,8 @@ which will run the app on `localhost:5000`.
 In production, this app runs on a Gunicorn server, which can also be used locally:
 
 ```bash
-export PRODUCTION=False DEV_CONFIG=./dev_config.cfg
-gunicorn isthejmzrunning.isthejmzrunning:app -b 0.0.0.0:8000
+$ export PRODUCTION=False DEV_CONFIG=./dev_config.cfg
+$ gunicorn isthejmzrunning.isthejmzrunning:app -b 0.0.0.0:8000
 ```
 
 In this example, the app would run on `localhost:8000`.
