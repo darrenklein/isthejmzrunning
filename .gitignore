@@ -4,3 +4,4 @@ __pycache__/
 */__pycache__/
 *.pyc
 isthejmzrunning/dev_config.cfg
+*.egg-info/
